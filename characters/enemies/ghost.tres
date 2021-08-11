@@ -5,7 +5,6 @@
 [ext_resource path="res://characters/enemies/ghost/ghost_03.png" type="Texture" id=3]
 
 [resource]
-
 resource_name = "ghost"
 animations = [ {
 "frames": [ ExtResource( 1 ), ExtResource( 2 ) ],
@@ -18,4 +17,3 @@ animations = [ {
 "name": "dead",
 "speed": 1.0
 } ]
-

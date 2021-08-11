@@ -8,6 +8,8 @@ func inc_score():
 func set_score(s):
 	score = s
 	$score.set_text(str(score))
+	if score >= 20:
+		get_tree().change_scene("res://level2.tscn")
 
 func _on_left_button_pressed():
 	Input.action_press("left")

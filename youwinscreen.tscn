@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://interface/fonts/kenvector_future_32.tres" type="DynamicFont" id=1]
+
+[node name="control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="label" type="Label" parent="."]
+margin_left = 338.542
+margin_top = 236.506
+margin_right = 712.542
+margin_bottom = 380.506
+custom_fonts/font = ExtResource( 1 )
+text = "Level 1 Cleared!
+MAX Points: 10
+Points Achieved: "

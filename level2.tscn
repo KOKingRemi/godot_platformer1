@@ -1,0 +1,230 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://player.gd" type="Script" id=1]
+[ext_resource path="res://characters/aliens/alien_pink.tscn" type="PackedScene" id=2]
+[ext_resource path="res://audio/digital_sfx/source/phaseJump1.ogg" type="AudioStream" id=3]
+[ext_resource path="res://enemy.tscn" type="PackedScene" id=4]
+[ext_resource path="res://tilesets/tiles_all.tres" type="TileSet" id=5]
+[ext_resource path="res://coin.tscn" type="PackedScene" id=6]
+[ext_resource path="res://HUD2.gd" type="Script" id=7]
+[ext_resource path="res://interface/fonts/kenvector_future_32.tres" type="DynamicFont" id=9]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 22.5473, 45.1373 )
+
+[sub_resource type="AudioStreamRandomPitch" id=2]
+audio_stream = ExtResource( 3 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 150, 100 )
+
+[node name="main" type="Node2D"]
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="player" type="KinematicBody2D" parent="."]
+position = Vector2( 187.827, 295.249 )
+collision_mask = 31
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="alien_pink" parent="player" instance=ExtResource( 2 )]
+frame = 1
+playing = true
+
+[node name="collision_shape_2d" type="CollisionShape2D" parent="player"]
+position = Vector2( -1.06445, -46.6229 )
+shape = SubResource( 1 )
+
+[node name="phaseJump1" type="AudioStreamPlayer" parent="player"]
+stream = SubResource( 2 )
+
+[node name="camera_2d" type="Camera2D" parent="player"]
+current = true
+
+[node name="tile_map" type="TileMap" parent="."]
+tile_set = ExtResource( 5 )
+format = 1
+tile_data = PoolIntArray( 65565, 536870914, 0, 65569, 536870914, 0, 65573, 536870914, 0, 131101, 536870914, 0, 131105, 536870914, 0, 131109, 536870914, 0, 196637, 536870914, 0, 196641, 536870914, 0, 196645, 536870914, 0, 262162, 3, 0, 262163, 536870915, 0, 262173, 536870914, 0, 262181, 536870914, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327746, 536870913, 0, 393228, 3, 0, 393229, 536870915, 0, 393239, 3, 0, 393240, 536870915, 0, 393256, 536870916, 0, 393279, 536870913, 0, 393282, 536870913, 0, 458793, 536870916, 0, 458812, 536870913, 0, 458815, 536870913, 0, 458818, 536870913, 0, 458821, 536870914, 0, 458822, 536870914, 0, 458823, 536870914, 0, 458824, 536870914, 0, 458825, 536870914, 0, 458826, 536870914, 0, 458827, 536870914, 0, 524317, 536870914, 0, 524321, 536870914, 0, 524325, 536870914, 0, 524330, 536870916, 0, 524345, 536870913, 0, 524348, 536870913, 0, 524351, 536870913, 0, 524354, 536870913, 0, 589853, 536870914, 0, 589857, 536870914, 0, 589861, 536870914, 0, 589867, 536870916, 0, 589878, 536870913, 0, 589881, 536870913, 0, 589884, 536870913, 0, 589887, 536870913, 0, 589890, 536870913, 0, 655389, 536870914, 0, 655393, 536870914, 0, 655397, 536870914, 0, 655404, 536870916, 0, 655414, 536870913, 0, 655417, 536870913, 0, 655420, 536870913, 0, 655423, 536870913, 0, 655426, 536870913, 0, 720941, 536870913, 0, 720942, 536870913, 0, 720943, 536870913, 0, 720944, 536870913, 0, 720945, 536870913, 0, 720946, 536870913, 0, 720950, 536870913, 0, 720953, 536870913, 0, 720956, 536870913, 0, 720959, 536870913, 0, 720962, 536870913, 0 )
+
+[node name="enemy" parent="tile_map" instance=ExtResource( 4 )]
+position = Vector2( 1215.3, 209.08 )
+
+[node name="enemy2" parent="tile_map" instance=ExtResource( 4 )]
+position = Vector2( 2142.88, 475.463 )
+
+[node name="enemy3" parent="tile_map" instance=ExtResource( 4 )]
+position = Vector2( 3070.47, 651.465 )
+
+[node name="enemy4" parent="tile_map" instance=ExtResource( 4 )]
+position = Vector2( 3484.31, 504.004 )
+
+[node name="enemy5" parent="tile_map" instance=ExtResource( 4 )]
+position = Vector2( 3879.13, 385.083 )
+
+[node name="enemy6" parent="tile_map" instance=ExtResource( 4 )]
+position = Vector2( 4059.89, 318.487 )
+
+[node name="coins" type="Node2D" parent="."]
+
+[node name="coin" parent="coins" instance=ExtResource( 6 )]
+
+[node name="coin12" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 4726.89, 418.084 )
+
+[node name="coin11" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 4062.93, 337.995 )
+
+[node name="coin10" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 4248.23, 280.977 )
+
+[node name="coin9" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 3678.06, 473.411 )
+
+[node name="coin8" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 2744.09, 507.139 )
+
+[node name="coin7" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 2400.29, 471.107 )
+
+[node name="coin5" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 1888.79, 472.488 )
+
+[node name="coin2" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 1532.01, 346.008 )
+
+[node name="coin3" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 833.541, 349.784 )
+
+[node name="coin4" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 833.541, 349.784 )
+
+[node name="coin6" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 833.541, 349.784 )
+
+[node name="enemies" type="Node2D" parent="."]
+
+[node name="HUD" type="CanvasLayer" parent="."]
+script = ExtResource( 7 )
+
+[node name="label" type="Label" parent="HUD"]
+margin_right = 70.0
+margin_bottom = 30.0
+custom_fonts/font = ExtResource( 9 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "SCORE"
+
+[node name="score" type="Label" parent="HUD"]
+margin_left = 160.0
+margin_right = 295.0
+margin_bottom = 36.0
+custom_fonts/font = ExtResource( 9 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "0"
+
+[node name="left_button" type="TouchScreenButton" parent="HUD"]
+visible = false
+self_modulate = Color( 1, 1, 1, 0.54902 )
+position = Vector2( 150, 500 )
+shape = SubResource( 5 )
+passby_press = true
+visibility_mode = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="color_rect" type="ColorRect" parent="HUD/left_button"]
+margin_left = -150.0
+margin_top = -100.0
+margin_right = 150.0
+margin_bottom = 100.0
+color = Color( 0, 0, 1, 0.486275 )
+
+[node name="label2" type="Label" parent="HUD/left_button"]
+margin_left = -50.0
+margin_top = -15.5
+margin_right = 85.0
+margin_bottom = 20.5
+custom_fonts/font = ExtResource( 9 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "LEFT"
+
+[node name="right_button" type="TouchScreenButton" parent="HUD"]
+visible = false
+self_modulate = Color( 1, 1, 1, 0.54902 )
+position = Vector2( 480, 500 )
+shape = SubResource( 5 )
+passby_press = true
+visibility_mode = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="color_rect" type="ColorRect" parent="HUD/right_button"]
+margin_left = -150.0
+margin_top = -100.0
+margin_right = 150.0
+margin_bottom = 100.0
+color = Color( 0, 0, 1, 0.486275 )
+
+[node name="label2" type="Label" parent="HUD/right_button"]
+margin_left = -50.0
+margin_top = -15.5
+margin_right = 85.0
+margin_bottom = 20.5
+custom_fonts/font = ExtResource( 9 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "RIGHT"
+
+[node name="jump_button" type="TouchScreenButton" parent="HUD"]
+visible = false
+self_modulate = Color( 1, 1, 1, 0.54902 )
+position = Vector2( 870, 500 )
+shape = SubResource( 5 )
+passby_press = true
+visibility_mode = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="color_rect" type="ColorRect" parent="HUD/jump_button"]
+margin_left = -150.0
+margin_top = -100.0
+margin_right = 150.0
+margin_bottom = 100.0
+color = Color( 0, 0, 1, 0.486275 )
+
+[node name="label2" type="Label" parent="HUD/jump_button"]
+margin_left = -50.0
+margin_top = -15.5
+margin_right = 85.0
+margin_bottom = 20.5
+custom_fonts/font = ExtResource( 9 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "JUMP"
+
+[node name="label" type="Label" parent="."]
+margin_left = 135.755
+margin_top = 39.184
+margin_right = 575.755
+margin_bottom = 75.184
+custom_fonts/font = ExtResource( 9 )
+text = "Level 2: Candyland "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="HUD/left_button" to="HUD" method="_on_left_button_pressed"]
+[connection signal="released" from="HUD/left_button" to="HUD" method="_on_left_button_released"]
+[connection signal="pressed" from="HUD/right_button" to="HUD" method="_on_right_button_pressed"]
+[connection signal="released" from="HUD/right_button" to="HUD" method="_on_right_button_released"]
+[connection signal="pressed" from="HUD/jump_button" to="HUD" method="_on_jump_button_pressed"]
+[connection signal="released" from="HUD/jump_button" to="HUD" method="_on_jump_button_released"]

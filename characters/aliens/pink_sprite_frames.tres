@@ -13,7 +13,6 @@
 [ext_resource path="res://characters/aliens/pink/alienPink_stand.png" type="Texture" id=11]
 
 [resource]
-
 animations = [ {
 "frames": [ ExtResource( 1 ) ],
 "loop": false,
@@ -25,24 +24,19 @@ animations = [ {
 "name": "walk",
 "speed": 4.0
 }, {
-"frames": [ ExtResource( 4 ) ],
+"frames": [ ExtResource( 11 ) ],
 "loop": false,
-"name": "duck",
+"name": "idle_side",
 "speed": 1.0
-}, {
-"frames": [ ExtResource( 5 ) ],
-"loop": false,
-"name": "idle_front",
-"speed": 1.0
-}, {
-"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
-"loop": true,
-"name": "swim",
-"speed": 4.0
 }, {
 "frames": [ ExtResource( 8 ), ExtResource( 9 ) ],
 "loop": true,
 "name": "climb",
+"speed": 4.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "swim",
 "speed": 4.0
 }, {
 "frames": [ ExtResource( 10 ) ],
@@ -50,9 +44,13 @@ animations = [ {
 "name": "hurt",
 "speed": 1.0
 }, {
-"frames": [ ExtResource( 11 ) ],
+"frames": [ ExtResource( 5 ) ],
 "loop": false,
-"name": "idle_side",
+"name": "idle_front",
+"speed": 1.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": false,
+"name": "duck",
 "speed": 1.0
 } ]
-
